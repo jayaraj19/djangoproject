@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>images</title>
+    <link rel="stylesheet" href="{% static "css/my_stylesheet.css" %}">
+</head>
+<body>
+<h1>Hello this is index.html!</h1>
+<h1>This is a picture of django!</h1>
+<img src="{% static "images/fav.jpg" %}" alt="don't linked correctly"/>
+
+
+<h1>HI welcome to django level Two!</h1>
+<h2>Here are your access records </h2>
+<div class="djangtwo">
+    {% if access_records %}
+    <table border="1">
+        <thead>
+        <th>Site Name</th>
+        <th>Date Accessed</th>
+        </thead>
+
+        {% for acc in access_records %}
+        <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% else %}
+        <p>NO ACCESS RECORD FOUND</p>
+    {% endif %}
+</div>
+
+{% for w in ws.all %}
+    <h1>{{ w.topic }}</h1>
+
+{% endfor %}
+
+
+</body>
+</html>
